@@ -1,10 +1,14 @@
 import React from 'react';
 import './menu-item.styles.scss';
+import { withRouter } from 'react-router-dom';
 
 // functional component Menuitem which includes main components inside each menu
-const MenuItem = ({ title, imageUrl, size }) => (
-    <div className={`${size} menu-item`}>
-        <div 
+const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
+    <div
+        className={`${size} menu-item`}
+        onClick={() => history.push(`${match.url}${linkUrl}`)}
+    >
+        <div
             className='background-image'
             style={{
                 backgroundImage: `url(${imageUrl})`
@@ -18,4 +22,5 @@ const MenuItem = ({ title, imageUrl, size }) => (
     </div>
 );
 
-export default MenuItem;
+//ppowering up MenuItem function to give it access to  location, match, history props
+export default withRouter(MenuItem);
