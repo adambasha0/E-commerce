@@ -22,5 +22,5 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
     </div>
 );
 
-//ppowering up MenuItem function to give it access to  location, match, history props
+//ppowering up MenuItem function to give it access to location, match, history props
 export default withRouter(MenuItem);
